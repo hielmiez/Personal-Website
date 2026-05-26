@@ -1,0 +1,72 @@
+/* Custom base styles beyond Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .skill-badge {
+        @apply px-4 py-1.5 text-xs font-mono font-medium rounded-lg bg-azure-50/80 text-azure-700 dark:bg-azure-900/30 dark:text-azure-300 border border-azure-200/50 dark:border-azure-700/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-azure-500/20 cursor-default backdrop-blur-sm;
+    }
+
+    .project-card {
+        @apply bg-white/60 dark:bg-slate-800/40 backdrop-blur-lg p-8 rounded-3xl border border-gray-100 dark:border-slate-700/50 shadow-lg hover:shadow-xl hover:shadow-azure-500/10 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full group cursor-pointer relative overflow-hidden;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f8fafc;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #0b1120;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 5px;
+    border: 2px solid #f8fafc;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #334155;
+    border: 2px solid #0b1120;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0078D4;
+}
+
+/* Selection */
+::selection {
+    background-color: rgba(0, 120, 212, 0.3);
+    color: inherit;
+}
+.dark ::selection {
+    background-color: rgba(0, 120, 212, 0.5);
+    color: white;
+}
+
+/* Scroll padding for fixed header */
+html {
+    scroll-padding-top: 6rem;
+}
+
+/* Intersection Observer animations */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    visibility: hidden;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, visibility, transform;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+}
