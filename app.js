@@ -162,9 +162,9 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'skills --list':
                 appendTerminalLine(
                     `<div class="space-y-1 text-[11px]">
-                        <div><span class="text-azure-400">[Backend]</span> C#, .NET Core / .NET 6-8, ASP.NET MVC/WebAPI, Blazor, EF Core, Serenity</div>
+                        <div><span class="text-azure-400">[Backend]</span> C# MVC, .NET Core / .NET 6–10, ADS Core Templates, WebAPI, Blazor, EF Core</div>
                         <div><span class="text-teal-400">[Data]</span>    SQL Server, PostgreSQL, Oracle, MySQL, Query Optimization</div>
-                        <div><span class="text-amber-400">[Cloud]</span>   Azure DevOps CI/CD, Azure API Management, App Insights, Power BI</div>
+                        <div><span class="text-amber-400">[DevOps]</span>  Azure DevOps SDLC, Automated Testing (Unit/Int/E2E), APIM, App Insights, Power BI</div>
                     </div>`
                 );
                 break;
@@ -174,12 +174,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 appendTerminalLine(
                     `<div class="space-y-1 text-[11px]">
                         <div class="text-sky-300 font-semibold">Featured Enterprise Systems (Click Case Studies below to inspect):</div>
-                        <div>1. <span class="text-white">U-CAN System</span> — PT. Pertamina Hulu Energi (.NET MVC, SQL Server)</div>
-                        <div>2. <span class="text-white">RFPO Portal</span> — PT. Bungasari Flour Mills (.NET 7, WebAPI, PostgreSQL)</div>
-                        <div>3. <span class="text-white">Inventory & Gift Tracking</span> — PT. Bank Danamon (.NET 6, Worker Service)</div>
-                        <div>4. <span class="text-white">Site Lease Agreement</span> — Protelindo (ASP.NET, Serenity FW)</div>
-                        <div>5. <span class="text-white">Azure APIM & App Insights</span> — Enterprise Observability & Power BI</div>
-                        <div>6. <span class="text-white">COMPASS</span> — PT. Pertamina Hulu Mahakam (ASP.NET MVC)</div>
+                        <div>1. <span class="text-white">Automated Testing in Azure DevOps SDLC (2026)</span> — PT. Pertamina Hulu Energi (Unit/Int/E2E, .NET Core)</div>
+                        <div>2. <span class="text-white">ADS Core Library &amp; Solution Template (2025)</span> — PT. Pertamina Hulu Energi (.NET 8 &amp; 10, C# MVC)</div>
+                        <div>3. <span class="text-white">U-CAN System</span> — PT. Pertamina Hulu Energi (.NET MVC, SQL Server)</div>
+                        <div>4. <span class="text-white">RFPO Portal</span> — PT. Bungasari Flour Mills (.NET 7, WebAPI, PostgreSQL)</div>
+                        <div>5. <span class="text-white">Inventory &amp; Gift Tracking</span> — PT. Bank Danamon (.NET 6, Worker Service)</div>
+                        <div>6. <span class="text-white">Site Lease Agreement</span> — Protelindo (ASP.NET, Serenity FW)</div>
+                        <div>7. <span class="text-white">Azure APIM &amp; App Insights</span> — Enterprise Observability &amp; Power BI</div>
+                        <div>8. <span class="text-white">COMPASS</span> — PT. Pertamina Hulu Mahakam (ASP.NET MVC)</div>
                     </div>`
                 );
                 break;
@@ -262,9 +264,9 @@ document.addEventListener('DOMContentLoaded', () => {
         backend: {
             badge: 'LAYER 03 • .NET CORE MICROSERVICES & WORKERS',
             title: 'High-Throughput C# / .NET Core WebAPI & Background Services',
-            desc: 'Clean-architecture backend services built on .NET 6/7/8 and Entity Framework Core, paired with asynchronous .NET Worker Services for scheduled inventory reconciliation, notifications, and batch processing.',
-            tags: ['C# / .NET 6-8', 'ASP.NET Core WebAPI', '.NET Worker Service', 'Entity Framework Core'],
-            proof: '"Powered Bank Danamon Inventory & Gift Tracking and Bungasari RFPO Payment Portal with resilient .NET backend services."'
+            desc: 'Clean-architecture backend services built on .NET 6/7/8/10 and ADS Core solution templates, paired with asynchronous .NET Worker Services for scheduled inventory reconciliation, notifications, and batch processing.',
+            tags: ['C# / .NET 6–10', 'ADS Core Templates', 'ASP.NET Core WebAPI', 'Entity Framework Core'],
+            proof: '"Standardized internal enterprise solutions with ADS Core (.NET 8 & 10) and resilient backend services for Pertamina PHE, Bank Danamon & Bungasari."'
         },
         database: {
             badge: 'LAYER 04 • ENTERPRISE RELATIONAL DATA TIER',
@@ -274,11 +276,11 @@ document.addEventListener('DOMContentLoaded', () => {
             proof: '"Architected high-integrity relational data models across 4 major RDBMS engines for banking, energy, and manufacturing clients."'
         },
         observability: {
-            badge: 'LAYER 05 • DEVSECOPS, APP INSIGHTS & POWER BI',
-            title: 'Automated Azure DevOps CI/CD & Live Power BI Observability',
-            desc: 'End-to-end DevSecOps pipelines automating build, security scanning, and release gates, coupled with Azure Application Insights telemetry feeding directly into executive Power BI dashboards.',
-            tags: ['Azure DevOps CI/CD', 'Application Insights', 'Power BI Dashboards', 'DevSecOps Certified'],
-            proof: '"Delivered real-time Power BI observability dashboards linked with Application Insights to monitor enterprise SLA health."'
+            badge: 'LAYER 05 • DEVSECOPS, AUTO TESTING & POWER BI',
+            title: 'Azure DevOps Automated Testing (Unit/Int/E2E) & Live Observability',
+            desc: 'End-to-end Azure DevOps SDLC pipelines enforcing automated Unit, Integration, and End-to-End (E2E) testing gates, coupled with Azure Application Insights telemetry feeding directly into executive Power BI dashboards.',
+            tags: ['Azure DevOps SDLC', 'Test Automation (Unit/Int/E2E)', 'Application Insights', 'Power BI Dashboards'],
+            proof: '"Implemented standardized automated testing across Azure DevOps SDLC and real-time Power BI observability dashboards at Pertamina Hulu Energi."'
         }
     };
 
@@ -394,6 +396,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Case Study Rich Data
     const caseStudies = {
+        autotest: {
+            client: 'PT. Mitra Integrasi Informatika — PT. Pertamina Hulu Energi',
+            year: '2026 • Azure DevOps SDLC & Quality Engineering',
+            title: 'Implementation of Automated Testing (Unit, Integration & E2E) on Azure DevOps SDLC',
+            summary: 'Enterprise-wide standardization and implementation of automated testing suites—spanning Unit Testing, Integration Testing, and End-to-End (E2E) Testing—embedded directly into the Azure DevOps Software Development Life Cycle (SDLC) at PT. Pertamina Hulu Energi.',
+            challenge: 'Manual regression testing across a growing portfolio of internal .NET enterprise applications slowed release velocity, created inconsistent quality verification, and increased the risk of production defects during deployments.',
+            solution: 'Engineered a standardized, multi-tier automated testing framework for C# MVC and .NET Core applications, integrating automated test execution, code coverage reporting, and release quality gates directly into Azure DevOps CI/CD pipelines.',
+            deliverables: [
+                'Standardized Unit, Integration, and End-to-End (E2E) testing templates and guidelines for internal .NET engineering teams.',
+                'Automated Azure DevOps CI/CD pipeline stages enforcing test execution and pass-rate thresholds prior to deployment.',
+                'Centralized test reporting, code coverage visibility, and shift-left quality assurance across the SDLC.'
+            ],
+            tech: ['Azure DevOps SDLC', 'Test Automation', 'Unit / Integration / E2E Testing', '.NET Core', 'C# MVC']
+        },
+        adscore: {
+            client: 'PT. Mitra Integrasi Informatika — PT. Pertamina Hulu Energi',
+            year: '2025 • Enterprise Platform Engineering & Standardization',
+            title: 'Managing & Updating Library and Solution Template ADS Core',
+            summary: 'Lifecycle management, modernization, and architectural standardization of the ADS Core shared library ecosystem and visual solution template for internal enterprise applications at PT. Pertamina Hulu Energi.',
+            challenge: 'Internal application teams needed a unified, secure, and modern foundational blueprint that eliminated repetitive boilerplate while supporting seamless upgrades from legacy patterns to .NET 8 and .NET 10.',
+            solution: 'Maintained and upgraded the ADS Core foundational libraries and project templates across C# MVC, .NET Core 8, and .NET Core 10, packaging cross-cutting concerns (authentication, logging, data access, and UI standards) into versioned DevOps artifacts.',
+            deliverables: [
+                'Upgraded and standardized ADS Core solution templates supporting .NET Core 8 and .NET Core 10.',
+                'Centralized shared libraries for cross-cutting enterprise concerns (security, RBAC, auditing, and API conventions).',
+                'Automated versioning and internal package distribution via Azure DevOps pipelines to accelerate new project onboarding.'
+            ],
+            tech: ['.NET Core 8', '.NET Core 10', 'C# MVC', 'ADS Core Template', 'Azure DevOps']
+        },
         ucan: {
             client: 'PT. Pertamina Hulu Energi',
             year: 'Upstream Oil & Gas • Contracting',
@@ -594,6 +624,18 @@ document.addEventListener('DOMContentLoaded', () => {
             label: 'Copy Email Address (wildan.ismanto@ms.mii.co.id)',
             category: 'Contact',
             action: () => copyEmailAddress('wildan.ismanto@ms.mii.co.id')
+        },
+        {
+            icon: 'fa-vial-circle-check text-emerald-400',
+            label: 'Case Study (2026): Automated Testing on Azure DevOps SDLC (Pertamina PHE)',
+            category: 'Project',
+            action: () => openCaseStudyModal('autotest')
+        },
+        {
+            icon: 'fa-cubes text-azure-500',
+            label: 'Case Study (2025): ADS Core Library & Solution Template (.NET 8 & 10)',
+            category: 'Project',
+            action: () => openCaseStudyModal('adscore')
         },
         {
             icon: 'fa-folder-open text-sky-500',
