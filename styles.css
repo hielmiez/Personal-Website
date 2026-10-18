@@ -1,0 +1,290 @@
+/* ==========================================================================
+   WHI.dev — Sleek Bento Grid & Spotlight UI Stylesheet
+   Pure CSS (compatible with Tailwind Play CDN without build step)
+   ========================================================================== */
+
+:root {
+    --bg-primary: #f8fafc;
+    --bg-card: rgba(255, 255, 255, 0.78);
+    --border-subtle: rgba(15, 23, 42, 0.08);
+    --border-hover: rgba(0, 120, 212, 0.45);
+    --spotlight-color: rgba(0, 120, 212, 0.08);
+    --spotlight-border: rgba(56, 189, 248, 0.5);
+}
+
+.dark {
+    --bg-primary: #060913;
+    --bg-card: rgba(15, 23, 42, 0.65);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(56, 189, 248, 0.45);
+    --spotlight-color: rgba(56, 189, 248, 0.11);
+    --spotlight-border: rgba(56, 189, 248, 0.6);
+}
+
+/* Base & Scrollbar */
+html {
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-primary);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Linear/Vercel Architectural Grid Background */
+.bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 25%, #000 50%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 25%, #000 50%, transparent 100%);
+}
+
+.dark .bg-grid-pattern {
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+/* Bento & Spotlight Card Effect */
+.spotlight-card {
+    position: relative;
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.spotlight-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        var(--spotlight-color),
+        transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.spotlight-card:hover::before {
+    opacity: 1;
+}
+
+.spotlight-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: 0 20px 40px -15px rgba(0, 120, 212, 0.12);
+}
+
+.spotlight-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Skill Badges (Replacing broken @apply) */
+.skill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    background: rgba(239, 246, 255, 0.85);
+    color: #0369a1;
+    border: 1px solid rgba(147, 197, 253, 0.5);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
+}
+
+.dark .skill-badge {
+    background: rgba(15, 23, 42, 0.8);
+    color: #7dd3fc;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.skill-badge:hover {
+    transform: translateY(-2px);
+    border-color: #0078D4;
+    box-shadow: 0 6px 16px -4px rgba(0, 120, 212, 0.25);
+}
+
+/* Project Filter Buttons */
+.filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-card);
+    color: #64748b;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.dark .filter-btn {
+    color: #94a3b8;
+}
+
+.filter-btn:hover {
+    color: #0078D4;
+    border-color: rgba(0, 120, 212, 0.4);
+}
+
+.dark .filter-btn:hover {
+    color: #38bdf8;
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #0078D4, #0284c7);
+    color: #ffffff !important;
+    border-color: transparent;
+    box-shadow: 0 4px 14px rgba(0, 120, 212, 0.35);
+}
+
+/* Architecture Visualizer Node & Flow Animations */
+.arch-node {
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arch-node:hover,
+.arch-node.active {
+    transform: translateY(-3px);
+    border-color: #38bdf8 !important;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+}
+
+.arch-connector {
+    position: relative;
+    overflow: hidden;
+}
+
+.arch-connector::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+    transform: translateX(-100%);
+    animation: dataFlow 2.4s infinite linear;
+}
+
+.arch-connector.simulating::after {
+    animation-duration: 0.7s;
+    background: linear-gradient(90deg, transparent, #2dd4bf, #38bdf8, transparent);
+}
+
+@keyframes dataFlow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Terminal Cursor */
+.terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background-color: #38bdf8;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #060913;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0078D4;
+}
+
+/* Selection */
+::selection {
+    background-color: rgba(0, 120, 212, 0.25);
+    color: inherit;
+}
+
+.dark ::selection {
+    background-color: rgba(56, 189, 248, 0.35);
+    color: #ffffff;
+}
+
+/* Scroll Reveal Animations */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Print Styles for Resume Modal */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #resume-modal,
+    #resume-modal * {
+        visibility: visible;
+    }
+    #resume-modal {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: white !important;
+        color: black !important;
+        padding: 0 !important;
+    }
+    #resume-printable {
+        box-shadow: none !important;
+        border: none !important;
+        max-height: none !important;
+        overflow: visible !important;
+        background: white !important;
+        color: black !important;
+    }
+    .no-print {
+        display: none !important;
+    }
+}

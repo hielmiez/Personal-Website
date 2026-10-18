@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildan Hilmy Ismanto | Enterprise .NET & Azure Application Developer</title>
+    <meta name="description" content="Portfolio of Wildan Hilmy Ismanto — Application Developer with 6+ years building mission-critical .NET, C#, SQL Server, and Azure enterprise systems.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        azure: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0078D4',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        darkBg: '#060913',
+                        darkSurface: '#0f172a'
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-darkBg dark:text-slate-300 transition-colors duration-300 antialiased font-sans relative overflow-x-hidden">
+
+    <!-- Architectural Grid & Ambient Glow Background -->
+    <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern"></div>
+        <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-tr from-azure-600/20 via-sky-400/15 to-teal-400/10 rounded-full blur-[130px] dark:opacity-100 opacity-60"></div>
+        <div class="absolute bottom-0 right-0 w-[500px] h-[400px] bg-indigo-600/10 rounded-full blur-[140px]"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 top-0 transition-all duration-300 backdrop-blur-xl bg-white/75 dark:bg-darkBg/75 border-b border-slate-200/70 dark:border-white/[0.07]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- Brand Logo -->
+                <div class="flex items-center gap-3">
+                    <a href="#hero" class="group flex items-center gap-2.5 focus:outline-none">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-azure-600 to-teal-500 flex items-center justify-center text-white font-mono font-bold text-sm shadow-md shadow-azure-600/25 group-hover:scale-105 transition-transform">
+                            W
+                        </div>
+                        <span class="font-bold text-xl tracking-tight text-slate-900 dark:text-white">
+                            WHI<span class="text-azure-600 dark:text-azure-400 font-mono text-base">.dev</span>
+                        </span>
+                    </a>
+                    <span class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+                        Available
+                    </span>
+                </div>
+
+                <!-- Center Nav Links -->
+                <div class="hidden lg:flex items-center space-x-1 bg-slate-100/80 dark:bg-slate-900/80 px-2 py-1.5 rounded-full border border-slate-200/80 dark:border-white/[0.07]">
+                    <a href="#about" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-azure-600 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800 transition-all">Bento & CLI</a>
+                    <a href="#architecture" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-azure-600 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800 transition-all">Architecture</a>
+                    <a href="#experience" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-azure-600 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800 transition-all">Experience</a>
+                    <a href="#projects" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-azure-600 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800 transition-all">Case Studies</a>
+                    <a href="#contact" class="px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-azure-600 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800 transition-all">Contact</a>
+                </div>
+
+                <!-- Right Actions: Command Palette, Resume, Theme -->
+                <div class="hidden md:flex items-center gap-2.5">
+                    <button id="cmd-palette-trigger" class="flex items-center gap-3 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-900/90 hover:bg-slate-200/70 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200/80 dark:border-white/10 text-xs font-mono transition-all" title="Open Command Palette">
+                        <span><i class="fas fa-terminal text-azure-500 mr-1.5"></i>Command</span>
+                        <kbd class="px-1.5 py-0.5 text-[10px] rounded bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shadow-sm">Ctrl K</kbd>
+                    </button>
+
+                    <button id="open-resume-btn" class="px-3.5 py-1.5 rounded-xl bg-azure-600 hover:bg-azure-500 text-white text-xs font-semibold transition-all shadow-sm shadow-azure-600/30 flex items-center gap-1.5">
+                        <i class="far fa-file-alt"></i> Resume
+                    </button>
+
+                    <button id="theme-toggle" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-900/90 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200/80 dark:border-white/10 flex items-center justify-center transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
+                        <i id="theme-icon" class="fas fa-sun text-sm text-amber-400"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Controls -->
+                <div class="flex md:hidden items-center gap-2">
+                    <button id="mobile-cmd-btn" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm" aria-label="Command Palette">
+                        <i class="fas fa-terminal text-azure-500"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none" aria-label="Open Menu">
+                        <i class="fas fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 dark:bg-darkBg/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800">
+            <div class="px-4 pt-3 pb-6 space-y-2 text-sm">
+                <a href="#about" class="block px-3 py-2.5 rounded-xl font-medium hover:bg-slate-100 dark:hover:bg-slate-800/80">Bento & Interactive CLI</a>
+                <a href="#architecture" class="block px-3 py-2.5 rounded-xl font-medium hover:bg-slate-100 dark:hover:bg-slate-800/80">Enterprise Architecture</a>
+                <a href="#experience" class="block px-3 py-2.5 rounded-xl font-medium hover:bg-slate-100 dark:hover:bg-slate-800/80">Experience</a>
+                <a href="#projects" class="block px-3 py-2.5 rounded-xl font-medium hover:bg-slate-100 dark:hover:bg-slate-800/80">Project Case Studies</a>
+                <a href="#contact" class="block px-3 py-2.5 rounded-xl font-medium hover:bg-slate-100 dark:hover:bg-slate-800/80">Education & Contact</a>
+                <div class="pt-2 flex gap-2">
+                    <button id="mobile-resume-btn" class="flex-1 py-2.5 px-3 rounded-xl font-semibold bg-azure-600 text-white text-center">
+                        <i class="far fa-file-alt mr-1.5"></i> View Resume
+                    </button>
+                    <button id="mobile-theme-toggle" class="py-2.5 px-4 rounded-xl font-medium bg-slate-100 dark:bg-slate-800">
+                        <i id="mobile-theme-icon" class="fas fa-sun text-amber-400"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- =================================================================
+             HERO SECTION & IMPACT METRICS BENTO BAR
+             ================================================================= -->
+        <section id="hero" class="pt-28 pb-16 md:pt-36 md:pb-24 relative">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+                <!-- Left Column: Intro & CTAs -->
+                <div class="lg:col-span-8 text-left">
+                    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-azure-500/30 bg-azure-500/10 backdrop-blur-md mb-6 font-mono text-xs text-azure-700 dark:text-azure-300">
+                        <span class="px-1.5 py-0.5 rounded bg-azure-600 text-white font-bold text-[10px]">.NET + AZURE</span>
+                        <span>Enterprise Application Developer • Jakarta, ID</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.08] mb-5">
+                        Wildan Hilmy Ismanto.
+                        <span class="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-azure-600 via-sky-400 to-teal-400">
+                            Engineering resilient enterprise systems.
+                        </span>
+                    </h1>
+
+                    <p class="max-w-2xl text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed mb-8 font-normal">
+                        With <strong class="text-slate-900 dark:text-white font-semibold">6+ years of production experience</strong>, I design and deliver high-availability full-stack applications across the <strong class="text-azure-600 dark:text-azure-400 font-semibold">.NET ecosystem</strong>, <strong class="text-azure-600 dark:text-azure-400 font-semibold">Azure API Management & DevOps</strong>, and <strong class="text-azure-600 dark:text-azure-400 font-semibold">enterprise SQL databases</strong> for Indonesia's leading energy, banking, and telecom institutions.
+                    </p>
+
+                    <!-- Primary CTA Row -->
+                    <div class="flex flex-wrap items-center gap-3.5 mb-8">
+                        <a href="#projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-azure-600 to-sky-500 hover:from-azure-500 hover:to-sky-400 text-white font-semibold text-sm transition-all shadow-lg shadow-azure-600/25 hover:shadow-azure-500/40 hover:-translate-y-0.5 flex items-center gap-2">
+                            <span>Explore Case Studies</span>
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+
+                        <button id="hero-resume-btn" class="px-5 py-3.5 rounded-xl bg-white dark:bg-slate-900/90 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-700/80 font-semibold text-sm transition-all hover:-translate-y-0.5 flex items-center gap-2">
+                            <i class="far fa-file-pdf text-azure-500"></i>
+                            <span>Interactive Resume</span>
+                        </button>
+
+                        <button data-copy-email="wildan.ismanto@ms.mii.co.id" class="copy-email-btn px-5 py-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-900/60 hover:bg-slate-200/70 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/70 dark:border-white/10 font-mono text-xs transition-all flex items-center gap-2" title="Click to copy email address">
+                            <i class="far fa-copy text-azure-500"></i>
+                            <span>wildan.ismanto@ms.mii.co.id</span>
+                        </button>
+                    </div>
+
+                    <!--Trusted Client Sectors Strip -->
+                    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-mono text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-200/60 dark:border-white/[0.06]">
+                        <span class="uppercase tracking-wider text-[11px] font-semibold text-slate-400 dark:text-slate-500">Delivered Systems For:</span>
+                        <span class="flex items-center gap-1.5 text-slate-700 dark:text-slate-300"><i class="fas fa-oil-well text-azure-500"></i> Pertamina Hulu Energi</span>
+                        <span class="flex items-center gap-1.5 text-slate-700 dark:text-slate-300"><i class="fas fa-building-columns text-teal-500"></i> Bank Danamon</span>
+                        <span class="flex items-center gap-1.5 text-slate-700 dark:text-slate-300"><i class="fas fa-tower-cell text-sky-500"></i> Protelindo</span>
+                        <span class="flex items-center gap-1.5 text-slate-700 dark:text-slate-300"><i class="fas fa-industry text-indigo-400"></i> Bungasari Flour Mills</span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Developer Identity Spotlight Card -->
+                <div class="lg:col-span-4">
+                    <div class="spotlight-card p-6 sm:p-7 border border-slate-200/80 dark:border-white/10 shadow-2xl">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-3.5">
+                                <div class="relative">
+                                    <div class="absolute -inset-0.5 bg-gradient-to-tr from-azure-500 to-teal-400 rounded-2xl blur opacity-50"></div>
+                                    <img src="https://ui-avatars.com/api/?name=Wildan+Hilmy+Ismanto&size=256&background=0078D4&color=fff&rounded=false&bold=true" alt="Wildan Hilmy Ismanto" class="relative w-16 h-16 rounded-2xl object-cover border-2 border-white dark:border-slate-800 shadow-md">
+                                </div>
+                                <div>
+                                    <h2 class="font-bold text-slate-900 dark:text-white text-base">Wildan H. Ismanto</h2>
+                                    <p class="text-xs font-mono text-azure-600 dark:text-azure-400">@ MII (Mitra Integrasi Informatika)</p>
+                                    <span class="inline-flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                                        <i class="fas fa-shield-halved text-teal-500"></i> DevSecOps Certified
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Live Telemetry Mini-Panel -->
+                        <div class="rounded-xl bg-slate-900 text-slate-200 p-4 font-mono text-xs border border-slate-800 mb-5">
+                            <div class="flex justify-between items-center text-[11px] text-slate-400 pb-2 mb-2.5 border-b border-slate-800">
+                                <span><i class="fas fa-circle text-[8px] text-emerald-400 mr-1.5"></i>runtime.profile.json</span>
+                                <span class="text-sky-400">net8.0</span>
+                            </div>
+                            <div class="space-y-1.5 text-[11px] leading-relaxed">
+                                <div><span class="text-sky-400">"role"</span>: <span class="text-amber-300">"Application Developer Assc"</span>,</div>
+                                <div><span class="text-sky-400">"coreStack"</span>: [<span class="text-emerald-300">"C#"</span>, <span class="text-emerald-300">".NET Core"</span>, <span class="text-emerald-300">"Blazor"</span>],</div>
+                                <div><span class="text-sky-400">"cloud"</span>: [<span class="text-emerald-300">"Azure DevOps"</span>, <span class="text-emerald-300">"APIM"</span>, <span class="text-emerald-300">"AppInsights"</span>],</div>
+                                <div><span class="text-sky-400">"data"</span>: [<span class="text-emerald-300">"SQL Server"</span>, <span class="text-emerald-300">"PostgreSQL"</span>, <span class="text-emerald-300">"Power BI"</span>]</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                            <span>Quick jump anywhere:</span>
+                            <button id="card-cmd-btn" class="font-mono text-azure-600 dark:text-azure-400 hover:underline flex items-center gap-1">
+                                <span>Open Palette</span> <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Impact Metrics Bento Strip (4 High-Impact Cards) -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
+                <div class="spotlight-card p-5 sm:p-6">
+                    <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
+                        <span>EXPERIENCE</span>
+                        <i class="fas fa-briefcase text-azure-500"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">6+ <span class="text-lg font-semibold text-azure-500">Yrs</span></div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Enterprise software engineering & architecture</p>
+                </div>
+
+                <div class="spotlight-card p-5 sm:p-6">
+                    <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
+                        <span>PRODUCTION APPS</span>
+                        <i class="fas fa-cubes text-teal-500"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">10+ <span class="text-lg font-semibold text-teal-500">Systems</span></div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Full-lifecycle delivery, migrations & CI/CD</p>
+                </div>
+
+                <div class="spotlight-card p-5 sm:p-6">
+                    <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
+                        <span>DATABASE ENGINES</span>
+                        <i class="fas fa-database text-sky-500"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">4 <span class="text-lg font-semibold text-sky-500">RDBMS</span></div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">SQL Server, PostgreSQL, Oracle & MySQL</p>
+                </div>
+
+                <div class="spotlight-card p-5 sm:p-6">
+                    <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
+                        <span>OBSERVABILITY</span>
+                        <i class="fas fa-chart-line text-indigo-400"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">24/7 <span class="text-lg font-semibold text-indigo-400">Telemetry</span></div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">App Insights + Power BI executive monitoring</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             01. BENTO GRID: ABOUT, TECH ARSENAL & INTERACTIVE .NET TERMINAL
+             ================================================================= -->
+        <section id="about" class="py-20 relative">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+                <div>
+                    <div class="font-mono text-xs uppercase tracking-widest text-azure-600 dark:text-azure-400 mb-2">01 / Engineering Profile & Interactive CLI</div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Built for Enterprise Scale</h2>
+                </div>
+                <p class="text-sm text-slate-500 dark:text-slate-400 font-mono">
+                    Hover cards for spotlight • Run commands in the live .NET terminal below
+                </p>
+            </div>
+
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+                
+                <!-- Bento Card 1: Engineering Narrative (7 cols) -->
+                <div class="spotlight-card lg:col-span-7 p-7 sm:p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="inline-flex items-center gap-2 text-xs font-mono text-azure-600 dark:text-azure-400 mb-4">
+                            <i class="fas fa-microchip"></i>
+                            <span>ARCHITECTURAL MINDSET</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 leading-snug">
+                            Bridging legacy reliability with modern .NET cloud-native performance.
+                        </h3>
+                        <div class="space-y-4 text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+                            <p>
+                                My career started with a degree in Informatics Engineering from <strong class="text-slate-800 dark:text-slate-200">Jenderal Soedirman University</strong>, evolving into over six years of hands-on delivery for mission-critical enterprise operations.
+                            </p>
+                            <p>
+                                At <strong class="text-azure-600 dark:text-azure-400">PT. Mitra Integrasi Informatika</strong> and <strong class="text-azure-600 dark:text-azure-400">PT. FEBE TEKNOLOGI DIGITAL</strong>, I have spearheaded everything from greenfield <code class="px-1.5 py-0.5 rounded bg-slate-200/70 dark:bg-slate-800 text-xs font-mono">.NET Core / .NET 7</code> APIs and <code class="px-1.5 py-0.5 rounded bg-slate-200/70 dark:bg-slate-800 text-xs font-mono">Blazor</code> frontends to high-stakes legacy migrations, Azure API Management gateways, and automated DevSecOps pipelines.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-3 gap-3 pt-6 mt-6 border-t border-slate-200/70 dark:border-white/[0.07]">
+                        <div class="p-3.5 rounded-xl bg-slate-100/70 dark:bg-slate-900/60 border border-slate-200/60 dark:border-white/5">
+                            <div class="text-xs font-mono text-azure-500 font-semibold mb-1">01. Backend & APIs</div>
+                            <div class="text-xs text-slate-600 dark:text-slate-400">Clean Architecture in C#, ASP.NET Core WebAPI, EF Core & Worker Services.</div>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-100/70 dark:bg-slate-900/60 border border-slate-200/60 dark:border-white/5">
+                            <div class="text-xs font-mono text-teal-500 font-semibold mb-1">02. Cloud & DevOps</div>
+                            <div class="text-xs text-slate-600 dark:text-slate-400">Azure DevOps CI/CD, API Management policies, and DevSecOps compliance.</div>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-100/70 dark:bg-slate-900/60 border border-slate-200/60 dark:border-white/5">
+                            <div class="text-xs font-mono text-sky-500 font-semibold mb-1">03. Data & Insights</div>
+                            <div class="text-xs text-slate-600 dark:text-slate-400">High-throughput SQL Server/PostgreSQL tuning & live Power BI telemetry.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bento Card 2: Interactive C# / .NET Terminal Widget (5 cols) -->
+                <div class="spotlight-card lg:col-span-5 p-0 flex flex-col bg-slate-950 text-slate-200 border-slate-800">
+                    <!-- Terminal Window Header -->
+                    <div class="px-4 py-3 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+                            <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+                            <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                            <span class="ml-2 font-mono text-xs text-slate-400">whi-cli — dotnet-interactive</span>
+                        </div>
+                        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-azure-500/20 text-azure-300 border border-azure-500/30">LIVE REPL</span>
+                    </div>
+
+                    <!-- Quick Command Chips -->
+                    <div class="px-4 py-2.5 bg-slate-900/40 border-b border-slate-800/80 flex flex-wrap gap-1.5 items-center">
+                        <span class="text-[10px] font-mono text-slate-400 mr-1">Try:</span>
+                        <button data-terminal-cmd="help" class="term-chip px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 hover:bg-azure-600 text-sky-300 hover:text-white transition-colors">help</button>
+                        <button data-terminal-cmd="skills" class="term-chip px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 hover:bg-azure-600 text-sky-300 hover:text-white transition-colors">skills</button>
+                        <button data-terminal-cmd="projects" class="term-chip px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 hover:bg-azure-600 text-sky-300 hover:text-white transition-colors">projects</button>
+                        <button data-terminal-cmd="metrics" class="term-chip px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 hover:bg-azure-600 text-sky-300 hover:text-white transition-colors">metrics</button>
+                        <button data-terminal-cmd="contact" class="term-chip px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 hover:bg-azure-600 text-sky-300 hover:text-white transition-colors">contact</button>
+                        <button data-terminal-cmd="clear" class="term-chip px-2 py-0.5 rounded text-[11px] font-mono bg-slate-800 hover:bg-rose-600 text-slate-400 hover:text-white transition-colors">clear</button>
+                    </div>
+
+                    <!-- Terminal Output Body -->
+                    <div id="terminal-output" class="p-4 font-mono text-xs space-y-2.5 h-64 overflow-y-auto flex-grow bg-slate-950/90">
+                        <div class="text-slate-400">WHI.dev Enterprise Shell [Version 8.0.2026]</div>
+                        <div class="text-emerald-400">✔ Connected to Wildan's portfolio runtime. Type <span class="text-white underline cursor-pointer" data-terminal-cmd="help">'help'</span> or click a command chip above.</div>
+                    </div>
+
+                    <!-- Terminal Input Form -->
+                    <form id="terminal-form" class="px-4 py-3 bg-slate-900/90 border-t border-slate-800 flex items-center gap-2 font-mono text-xs">
+                        <span class="text-azure-400 font-bold select-none">PS whi.dev&gt;</span>
+                        <input id="terminal-input" type="text" placeholder="Type command (e.g. skills, projects, whoami)..." autocomplete="off" class="bg-transparent text-white placeholder-slate-500 focus:outline-none flex-grow text-xs" />
+                        <button type="submit" class="text-slate-400 hover:text-sky-400 px-2 py-0.5 rounded bg-slate-800 text-[10px]">Run ↵</button>
+                    </form>
+                </div>
+
+                <!-- Bento Card 3: Complete Technical Arsenal (12 cols) -->
+                <div class="spotlight-card lg:col-span-12 p-7 sm:p-8">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-2">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                            <i class="fas fa-layer-group text-azure-500"></i>
+                            <span>Production Technical Arsenal</span>
+                        </h3>
+                        <span class="text-xs font-mono text-slate-500 dark:text-slate-400">Click any technology below to filter related projects</span>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <!-- Group 1 -->
+                        <div class="p-5 rounded-2xl bg-slate-100/60 dark:bg-slate-900/50 border border-slate-200/70 dark:border-white/[0.06]">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="text-xs uppercase tracking-wider font-mono font-bold text-slate-500 dark:text-slate-400">Languages & Frameworks</h4>
+                                <i class="fas fa-code text-azure-500 text-xs"></i>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge" data-skill-filter="dotnet"><i class="fab fa-microsoft text-azure-500"></i> C# / .NET Core</span>
+                                <span class="skill-badge" data-skill-filter="dotnet">.NET 6 / 7 / 8</span>
+                                <span class="skill-badge" data-skill-filter="mvc">ASP.NET MVC & WebAPI</span>
+                                <span class="skill-badge" data-skill-filter="dotnet">Blazor</span>
+                                <span class="skill-badge" data-skill-filter="dotnet">Entity Framework</span>
+                                <span class="skill-badge" data-skill-filter="mvc">Serenity Framework</span>
+                                <span class="skill-badge" data-skill-filter="mvc">VB.NET</span>
+                                <span class="skill-badge">JavaScript / HTML / CSS</span>
+                            </div>
+                        </div>
+
+                        <!-- Group 2 -->
+                        <div class="p-5 rounded-2xl bg-slate-100/60 dark:bg-slate-900/50 border border-slate-200/70 dark:border-white/[0.06]">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="text-xs uppercase tracking-wider font-mono font-bold text-slate-500 dark:text-slate-400">Relational Databases</h4>
+                                <i class="fas fa-database text-teal-500 text-xs"></i>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge" data-skill-filter="all"><i class="fas fa-server text-teal-500"></i> Microsoft SQL Server</span>
+                                <span class="skill-badge" data-skill-filter="dotnet">PostgreSQL</span>
+                                <span class="skill-badge">Oracle Database</span>
+                                <span class="skill-badge">MySQL</span>
+                                <span class="skill-badge">Stored Procs & Query Tuning</span>
+                                <span class="skill-badge">Database Migration</span>
+                            </div>
+                        </div>
+
+                        <!-- Group 3 -->
+                        <div class="p-5 rounded-2xl bg-slate-100/60 dark:bg-slate-900/50 border border-slate-200/70 dark:border-white/[0.06]">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="text-xs uppercase tracking-wider font-mono font-bold text-slate-500 dark:text-slate-400">Cloud, DevOps & Observability</h4>
+                                <i class="fas fa-cloud text-sky-500 text-xs"></i>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge" data-skill-filter="azure"><i class="fas fa-infinity text-sky-500"></i> Azure DevOps CI/CD</span>
+                                <span class="skill-badge" data-skill-filter="azure">Azure API Management</span>
+                                <span class="skill-badge" data-skill-filter="azure">Application Insights</span>
+                                <span class="skill-badge" data-skill-filter="azure">Power BI Dashboards</span>
+                                <span class="skill-badge" data-skill-filter="azure">DevSecOps</span>
+                                <span class="skill-badge">Visual Studio & JetBrains Rider</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             02. INTERACTIVE SYSTEM ARCHITECTURE & DEVOPS VISUALIZER
+             ================================================================= -->
+        <section id="architecture" class="py-20 relative">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <div class="font-mono text-xs uppercase tracking-widest text-azure-600 dark:text-azure-400 mb-2">02 / Interactive Blueprint</div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Enterprise Architecture & DevOps Flow</h2>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="simulate-arch-btn" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-azure-600 to-teal-500 hover:from-azure-500 hover:to-teal-400 text-white font-mono text-xs font-semibold shadow-md shadow-azure-500/20 flex items-center gap-2 transition-all">
+                        <i class="fas fa-bolt"></i>
+                        <span id="simulate-arch-label">Simulate Live Request Trace</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="spotlight-card p-6 sm:p-8">
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-6 flex items-center justify-between flex-wrap gap-2">
+                    <span><i class="fas fa-hand-pointer text-azure-500 mr-1.5"></i>Click any architectural layer below to inspect how I design, secure, and monitor enterprise systems:</span>
+                    <span id="arch-trace-status" class="font-mono text-xs text-emerald-500 hidden"><i class="fas fa-circle-check mr-1"></i>Trace healthy: 42ms end-to-end</span>
+                </p>
+
+                <!-- 5-Stage Interactive Pipeline Diagram -->
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-stretch relative">
+                    
+                    <!-- Node 1: Frontend / Client Portals -->
+                    <div class="arch-node active rounded-2xl p-4 bg-white/80 dark:bg-slate-900/90 border-2 border-slate-200 dark:border-slate-800 flex flex-col justify-between" data-arch-node="client">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-azure-500/10 text-azure-600 dark:text-azure-400 font-semibold">Layer 01</span>
+                                <i class="fas fa-window-maximize text-azure-500"></i>
+                            </div>
+                            <h3 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Enterprise Portals</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Blazor, ASP.NET MVC & Serenity Web UIs</p>
+                        </div>
+                        <div class="mt-4 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                            <span>HTTPS / RBAC</span>
+                            <span class="node-metric text-emerald-500">● Ready</span>
+                        </div>
+                    </div>
+
+                    <!-- Node 2: Azure API Management -->
+                    <div class="arch-node rounded-2xl p-4 bg-white/80 dark:bg-slate-900/90 border-2 border-slate-200 dark:border-slate-800 flex flex-col justify-between" data-arch-node="apim">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-sky-500/10 text-sky-600 dark:text-sky-400 font-semibold">Layer 02</span>
+                                <i class="fas fa-shield-halved text-sky-500"></i>
+                            </div>
+                            <h3 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Azure API Gateway</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">API Management, Rate Limiting & JWT Policies</p>
+                        </div>
+                        <div class="mt-4 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                            <span>APIM Policies</span>
+                            <span class="node-metric text-emerald-500">● Secured</span>
+                        </div>
+                    </div>
+
+                    <!-- Node 3: .NET Core Services -->
+                    <div class="arch-node rounded-2xl p-4 bg-white/80 dark:bg-slate-900/90 border-2 border-slate-200 dark:border-slate-800 flex flex-col justify-between" data-arch-node="backend">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-semibold">Layer 03</span>
+                                <i class="fas fa-cogs text-indigo-500"></i>
+                            </div>
+                            <h3 class="font-bold text-sm text-slate-900 dark:text-white mb-1">.NET Core & Workers</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">C# WebAPI, Background Services & EF Core</p>
+                        </div>
+                        <div class="mt-4 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                            <span>Clean Arch</span>
+                            <span class="node-metric text-emerald-500">● Scalable</span>
+                        </div>
+                    </div>
+
+                    <!-- Node 4: Relational Data Tier -->
+                    <div class="arch-node rounded-2xl p-4 bg-white/80 dark:bg-slate-900/90 border-2 border-slate-200 dark:border-slate-800 flex flex-col justify-between" data-arch-node="database">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-teal-500/10 text-teal-600 dark:text-teal-400 font-semibold">Layer 04</span>
+                                <i class="fas fa-database text-teal-500"></i>
+                            </div>
+                            <h3 class="font-bold text-sm text-slate-900 dark:text-white mb-1">Enterprise RDBMS</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">SQL Server, PostgreSQL & Oracle Clusters</p>
+                        </div>
+                        <div class="mt-4 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                            <span>ACID / Indexing</span>
+                            <span class="node-metric text-emerald-500">● Optimized</span>
+                        </div>
+                    </div>
+
+                    <!-- Node 5: Observability & CI/CD -->
+                    <div class="arch-node rounded-2xl p-4 bg-white/80 dark:bg-slate-900/90 border-2 border-slate-200 dark:border-slate-800 flex flex-col justify-between" data-arch-node="observability">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-semibold">Layer 05</span>
+                                <i class="fas fa-chart-pie text-amber-500"></i>
+                            </div>
+                            <h3 class="font-bold text-sm text-slate-900 dark:text-white mb-1">App Insights & Power BI</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Azure DevOps CI/CD & Executive Telemetry</p>
+                        </div>
+                        <div class="mt-4 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                            <span>DevSecOps</span>
+                            <span class="node-metric text-emerald-500">● Live Stream</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Animated Data Flow Bar -->
+                <div id="arch-flow-bar" class="arch-connector h-1.5 w-full bg-slate-200 dark:bg-slate-800 rounded-full my-6"></div>
+
+                <!-- Architecture Inspector Detail Panel -->
+                <div id="arch-detail-panel" class="rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-white/10 p-6 transition-all">
+                    <div class="grid lg:grid-cols-3 gap-6 items-center">
+                        <div class="lg:col-span-2">
+                            <div class="flex items-center gap-2.5 mb-2">
+                                <span id="arch-detail-badge" class="px-2.5 py-0.5 rounded-full text-xs font-mono font-semibold bg-azure-500/15 text-azure-600 dark:text-azure-300">LAYER 01 • ENTERPRISE PORTALS</span>
+                            </div>
+                            <h4 id="arch-detail-title" class="text-xl font-bold text-slate-900 dark:text-white mb-2">Responsive Enterprise Web Portals (Blazor & ASP.NET MVC)</h4>
+                            <p id="arch-detail-desc" class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                                Built intuitive, role-based enterprise interfaces for complex workflows—such as upstream oil & gas contracting (U-CAN) and telecommunication site lease management (Protelindo)—ensuring fast rendering, strict validation, and seamless audit trails.
+                            </p>
+                            <div id="arch-detail-tags" class="flex flex-wrap gap-2 font-mono text-xs">
+                                <span class="px-2.5 py-1 rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Blazor Components</span>
+                                <span class="px-2.5 py-1 rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">ASP.NET MVC 5 / Core</span>
+                                <span class="px-2.5 py-1 rounded-md bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Serenity Framework</span>
+                            </div>
+                        </div>
+                        <div class="bg-slate-950 text-slate-300 p-4 rounded-xl font-mono text-xs border border-slate-800">
+                            <div class="text-[10px] text-slate-500 uppercase tracking-wider mb-2">Production Proof Point</div>
+                            <div id="arch-detail-proof" class="text-emerald-400 leading-relaxed">
+                                "Streamlined multi-department approval workflows for Pertamina Hulu Energi & Bungasari Flour Mills with zero-downtime UI deployments."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             03. PROFESSIONAL EXPERIENCE TIMELINE
+             ================================================================= -->
+        <section id="experience" class="py-20 relative">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+                <div>
+                    <div class="font-mono text-xs uppercase tracking-widest text-azure-600 dark:text-azure-400 mb-2">03 / Career Trajectory</div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Professional Experience</h2>
+                </div>
+                <span class="font-mono text-xs text-slate-500 dark:text-slate-400">2018 — Present • 4 Enterprise Organizations</span>
+            </div>
+
+            <div class="relative border-l-2 border-azure-500/30 dark:border-slate-800 ml-3 md:ml-6 space-y-8">
+                
+                <!-- Role 1 -->
+                <div class="relative pl-8 md:pl-10 group">
+                    <div class="absolute -left-[11px] top-6 w-5 h-5 rounded-full bg-white dark:bg-darkBg border-4 border-azure-600 dark:border-azure-400 group-hover:scale-125 transition-transform shadow-[0_0_12px_rgba(0,120,212,0.6)]"></div>
+                    <div class="spotlight-card p-6 sm:p-8">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
+                            <div>
+                                <div class="inline-flex items-center gap-2 text-xs font-mono text-emerald-600 dark:text-emerald-400 mb-1">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span> CURRENT ROLE
+                                </div>
+                                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+                                    Application Developer Associate <span class="text-azure-600 dark:text-azure-400">@ PT. Mitra Integrasi Informatika</span>
+                                </h3>
+                            </div>
+                            <span class="self-start md:self-auto px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 font-mono text-xs text-slate-600 dark:text-slate-300 whitespace-nowrap">
+                                Dec 2023 — Present
+                            </span>
+                        </div>
+
+                        <ul class="space-y-2.5 text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-5">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fas fa-check-circle text-azure-500 mt-1 text-xs"></i>
+                                <span>Engineer custom enterprise applications and optimize existing .NET codebases for high-efficiency internal and client operations.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fas fa-check-circle text-azure-500 mt-1 text-xs"></i>
+                                <span>Manage mission-critical application lifecycles, automated <strong>Azure DevOps CI/CD</strong> pipelines, and <strong>Azure API Management (APIM)</strong> gateways.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fas fa-check-circle text-azure-500 mt-1 text-xs"></i>
+                                <span>Architect executive <strong>Power BI Dashboards</strong> integrated directly with <strong>Azure Application Insights</strong> for real-time telemetry and SLA tracking.</span>
+                            </li>
+                        </ul>
+
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-200/60 dark:border-white/[0.06] font-mono text-xs">
+                            <span class="px-2.5 py-1 rounded bg-azure-500/10 text-azure-600 dark:text-azure-300">Azure DevOps</span>
+                            <span class="px-2.5 py-1 rounded bg-azure-500/10 text-azure-600 dark:text-azure-300">Azure APIM</span>
+                            <span class="px-2.5 py-1 rounded bg-azure-500/10 text-azure-600 dark:text-azure-300">Application Insights</span>
+                            <span class="px-2.5 py-1 rounded bg-azure-500/10 text-azure-600 dark:text-azure-300">Power BI</span>
+                            <span class="px-2.5 py-1 rounded bg-azure-500/10 text-azure-600 dark:text-azure-300">C# / .NET</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role 2 -->
+                <div class="relative pl-8 md:pl-10 group">
+                    <div class="absolute -left-[11px] top-6 w-5 h-5 rounded-full bg-white dark:bg-darkBg border-4 border-slate-300 dark:border-slate-600 group-hover:border-azure-400 group-hover:scale-125 transition-all"></div>
+                    <div class="spotlight-card p-6 sm:p-8">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
+                            <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+                                Application Developer <span class="text-azure-600 dark:text-azure-400">@ PT. FEBE TEKNOLOGI DIGITAL</span>
+                            </h3>
+                            <span class="self-start md:self-auto px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 font-mono text-xs text-slate-600 dark:text-slate-300 whitespace-nowrap">
+                                Oct 2020 — Nov 2023 • 3 yrs 2 mos
+                            </span>
+                        </div>
+
+                        <ul class="space-y-2.5 text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-5">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fas fa-check-circle text-teal-500 mt-1 text-xs"></i>
+                                <span>Led end-to-end application development, system migration, and production deployments for tier-1 enterprise clients (Bank Danamon, Bungasari Flour Mills, Pertamina).</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fas fa-check-circle text-teal-500 mt-1 text-xs"></i>
+                                <span>Designed normalized, high-throughput relational database schemas across <strong>SQL Server, PostgreSQL, and MySQL</strong>.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fas fa-check-circle text-teal-500 mt-1 text-xs"></i>
+                                <span>Delivered resilient backend APIs, worker services, and interactive web portals using <strong>ASP.NET Core, WebAPI, .NET 6/7, and Blazor</strong>.</span>
+                            </li>
+                        </ul>
+
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-200/60 dark:border-white/[0.06] font-mono text-xs">
+                            <span class="px-2.5 py-1 rounded bg-teal-500/10 text-teal-600 dark:text-teal-300">.NET 6 & 7</span>
+                            <span class="px-2.5 py-1 rounded bg-teal-500/10 text-teal-600 dark:text-teal-300">ASP.NET Core WebAPI</span>
+                            <span class="px-2.5 py-1 rounded bg-teal-500/10 text-teal-600 dark:text-teal-300">Blazor</span>
+                            <span class="px-2.5 py-1 rounded bg-teal-500/10 text-teal-600 dark:text-teal-300">SQL Server & PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role 3 -->
+                <div class="relative pl-8 md:pl-10 group">
+                    <div class="absolute -left-[11px] top-6 w-5 h-5 rounded-full bg-white dark:bg-darkBg border-4 border-slate-300 dark:border-slate-600 group-hover:border-azure-400 group-hover:scale-125 transition-all"></div>
+                    <div class="spotlight-card p-6 sm:p-8">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
+                            <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+                                .NET Developer <span class="text-azure-600 dark:text-azure-400">@ PT. BSC Indonesia</span>
+                            </h3>
+                            <span class="self-start md:self-auto px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 font-mono text-xs text-slate-600 dark:text-slate-300 whitespace-nowrap">
+                                Oct 2019 — Oct 2020 • 1 yr
+                            </span>
+                        </div>
+
+                        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-4">
+                            Developed tailored enterprise software solutions fulfilling complex client business workflows using <strong>ASP.NET MVC, C#, and SQL Server</strong>.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 pt-3 border-t border-slate-200/60 dark:border-white/[0.06] font-mono text-xs">
+                            <span class="px-2.5 py-1 rounded bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">ASP.NET MVC</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">C#</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">SQL Server</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role 4 -->
+                <div class="relative pl-8 md:pl-10 group">
+                    <div class="absolute -left-[11px] top-6 w-5 h-5 rounded-full bg-white dark:bg-darkBg border-4 border-slate-300 dark:border-slate-600 group-hover:border-azure-400 group-hover:scale-125 transition-all"></div>
+                    <div class="spotlight-card p-6 sm:p-8">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
+                            <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+                                .NET Developer <span class="text-azure-600 dark:text-azure-400">@ PT. Bumimulia Indah Lestari</span>
+                            </h3>
+                            <span class="self-start md:self-auto px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 font-mono text-xs text-slate-600 dark:text-slate-300 whitespace-nowrap">
+                                May 2018 — Oct 2019 • 1 yr 6 mos
+                            </span>
+                        </div>
+
+                        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-4">
+                            Customized and modernized legacy manufacturing codebases, improved operational query performance, and executed seamless application migrations.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 pt-3 border-t border-slate-200/60 dark:border-white/[0.06] font-mono text-xs">
+                            <span class="px-2.5 py-1 rounded bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">.NET Framework</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Legacy Migration</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300">SQL Server</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =================================================================
+             04. INTERACTIVE PROJECT CASE STUDIES & FILTERABLE TECH STACK
+             ================================================================= -->
+        <section id="projects" class="py-20 relative">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-10 gap-6">
+                <div>
+                    <div class="font-mono text-xs uppercase tracking-widest text-azure-600 dark:text-azure-400 mb-2">04 / Production Portfolio</div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Featured Enterprise Case Studies</h2>
+                </div>
+
+                <!-- Interactive Filter Pills -->
+                <div class="flex flex-wrap gap-2" id="project-filters">
+                    <button class="filter-btn active" data-filter="all">All Systems (6)</button>
+                    <button class="filter-btn" data-filter="dotnet">.NET 6 / .NET 7</button>
+                    <button class="filter-btn" data-filter="mvc">ASP.NET MVC</button>
+                    <button class="filter-btn" data-filter="azure">Azure & Observability</button>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+                
+                <!-- Project 1: U-CAN -->
+                <article class="spotlight-card p-7 flex flex-col justify-between group project-item" data-category="mvc" data-project-id="ucan">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-5">
+                            <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-azure-500/10 text-azure-600 dark:text-azure-400 border border-azure-500/20">
+                                Oil & Gas • Pertamina PHE
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">Contracting</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-azure-500 transition-colors mb-2">
+                            U-CAN Contracting System
+                        </h3>
+
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-5">
+                            Upstream Contracting Application engineered for <strong>PT. Pertamina Hulu Energi</strong> to digitize, track, and govern multi-stage internal contract lifecycles.
+                        </p>
+
+                        <!-- Key Impact Metric Box -->
+                        <div class="p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-900/70 border border-slate-200/60 dark:border-white/5 mb-5">
+                            <div class="text-[10px] font-mono uppercase text-slate-400 mb-0.5">Key Engineering Impact</div>
+                            <div class="text-xs font-semibold text-slate-800 dark:text-slate-200">Centralized upstream contract governance & automated approval audit trails</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-500 dark:text-slate-400 mb-5">
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">.NET 4.6.1</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">C# MVC</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">SQL Server</span>
+                        </div>
+
+                        <button class="open-case-study w-full py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-slate-800/90 hover:bg-azure-600 hover:text-white dark:hover:bg-azure-600 text-slate-700 dark:text-slate-200 font-mono text-xs font-semibold transition-all flex items-center justify-between" data-project-id="ucan">
+                            <span>Inspect Architecture & Case Study</span>
+                            <i class="fas fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Project 2: RFPO Portal -->
+                <article class="spotlight-card p-7 flex flex-col justify-between group project-item" data-category="dotnet" data-project-id="rfpo">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-5">
+                            <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20">
+                                Manufacturing • Bungasari
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">FinTech</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-teal-400 transition-colors mb-2">
+                            RFPO Payment Portal
+                        </h3>
+
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-5">
+                            Request For Payment Online platform built for <strong>PT. Bungasari Flour Mills Indonesia</strong> to accelerate corporate reimbursement and payment approvals.
+                        </p>
+
+                        <div class="p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-900/70 border border-slate-200/60 dark:border-white/5 mb-5">
+                            <div class="text-[10px] font-mono uppercase text-slate-400 mb-0.5">Key Engineering Impact</div>
+                            <div class="text-xs font-semibold text-slate-800 dark:text-slate-200">Modern .NET 7 RESTful WebAPI architecture backed by PostgreSQL</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-500 dark:text-slate-400 mb-5">
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">.NET 7</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">ASP.NET WebAPI</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">PostgreSQL</span>
+                        </div>
+
+                        <button class="open-case-study w-full py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-slate-800/90 hover:bg-azure-600 hover:text-white dark:hover:bg-azure-600 text-slate-700 dark:text-slate-200 font-mono text-xs font-semibold transition-all flex items-center justify-between" data-project-id="rfpo">
+                            <span>Inspect Architecture & Case Study</span>
+                            <i class="fas fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Project 3: Inventory & Gift Tracking -->
+                <article class="spotlight-card p-7 flex flex-col justify-between group project-item" data-category="dotnet" data-project-id="danamon">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-5">
+                            <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
+                                Banking • Bank Danamon
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">Logistics</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-400 transition-colors mb-2">
+                            Inventory & Gift Tracking
+                        </h3>
+
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-5">
+                            Enterprise inventory and promotional gift lifecycle tracking system engineered for <strong>PT. Bank Danamon Tbk</strong> with automated background workers.
+                        </p>
+
+                        <div class="p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-900/70 border border-slate-200/60 dark:border-white/5 mb-5">
+                            <div class="text-[10px] font-mono uppercase text-slate-400 mb-0.5">Key Engineering Impact</div>
+                            <div class="text-xs font-semibold text-slate-800 dark:text-slate-200">Automated reconciliation & scheduled notification jobs via .NET 6 Worker Service</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-500 dark:text-slate-400 mb-5">
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">.NET 6</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">Worker Service</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">SQL Server</span>
+                        </div>
+
+                        <button class="open-case-study w-full py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-slate-800/90 hover:bg-azure-600 hover:text-white dark:hover:bg-azure-600 text-slate-700 dark:text-slate-200 font-mono text-xs font-semibold transition-all flex items-center justify-between" data-project-id="danamon">
+                            <span>Inspect Architecture & Case Study</span>
+                            <i class="fas fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Project 4: Site Lease Agreement -->
+                <article class="spotlight-card p-7 flex flex-col justify-between group project-item" data-category="mvc" data-project-id="protelindo">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-5">
+                            <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20">
+                                Telecom • Protelindo
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">Asset Mgmt</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-sky-400 transition-colors mb-2">
+                            Site Lease Agreement System
+                        </h3>
+
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-5">
+                            Nationwide telecommunication tower leasing and contract renewal platform for <strong>PT. Profesional Telekomunikasi Indonesia (Protelindo)</strong>.
+                        </p>
+
+                        <div class="p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-900/70 border border-slate-200/60 dark:border-white/5 mb-5">
+                            <div class="text-[10px] font-mono uppercase text-slate-400 mb-0.5">Key Engineering Impact</div>
+                            <div class="text-xs font-semibold text-slate-800 dark:text-slate-200">High-density data grids & document workflows built on Serenity Framework</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-500 dark:text-slate-400 mb-5">
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">ASP.NET 4.5</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">Serenity FW</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">SQL Server</span>
+                        </div>
+
+                        <button class="open-case-study w-full py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-slate-800/90 hover:bg-azure-600 hover:text-white dark:hover:bg-azure-600 text-slate-700 dark:text-slate-200 font-mono text-xs font-semibold transition-all flex items-center justify-between" data-project-id="protelindo">
+                            <span>Inspect Architecture & Case Study</span>
+                            <i class="fas fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Project 5: App Insights & APIM -->
+                <article class="spotlight-card p-7 flex flex-col justify-between group project-item" data-category="azure" data-project-id="appinsights">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-5">
+                            <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                                Cloud • Enterprise DevOps
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">Observability</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-amber-400 transition-colors mb-2">
+                            Azure APIM & App Insights Rollout
+                        </h3>
+
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-5">
+                            Enterprise-wide implementation of <strong>Azure Application Insights</strong>, <strong>API Management</strong>, and <strong>Power BI</strong> telemetry dashboards.
+                        </p>
+
+                        <div class="p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-900/70 border border-slate-200/60 dark:border-white/5 mb-5">
+                            <div class="text-[10px] font-mono uppercase text-slate-400 mb-0.5">Key Engineering Impact</div>
+                            <div class="text-xs font-semibold text-slate-800 dark:text-slate-200">End-to-end distributed tracing, anomaly detection & executive Power BI reporting</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-500 dark:text-slate-400 mb-5">
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">Azure DevOps</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">API Management</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">Power BI</span>
+                        </div>
+
+                        <button class="open-case-study w-full py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-slate-800/90 hover:bg-azure-600 hover:text-white dark:hover:bg-azure-600 text-slate-700 dark:text-slate-200 font-mono text-xs font-semibold transition-all flex items-center justify-between" data-project-id="appinsights">
+                            <span>Inspect Architecture & Case Study</span>
+                            <i class="fas fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Project 6: COMPASS -->
+                <article class="spotlight-card p-7 flex flex-col justify-between group project-item" data-category="mvc" data-project-id="compass">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-5">
+                            <span class="px-3 py-1 rounded-full text-xs font-mono font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                                Energy • Pertamina PHM
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">HR Tech</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-400 transition-colors mb-2">
+                            COMPASS Assessment Platform
+                        </h3>
+
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-5">
+                            Competency Assessment System designed and deployed for <strong>PT. Pertamina Hulu Mahakam</strong> to evaluate workforce technical readiness.
+                        </p>
+
+                        <div class="p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-900/70 border border-slate-200/60 dark:border-white/5 mb-5">
+                            <div class="text-[10px] font-mono uppercase text-slate-400 mb-0.5">Key Engineering Impact</div>
+                            <div class="text-xs font-semibold text-slate-800 dark:text-slate-200">Structured competency matrices, automated scoring & multi-role evaluation flows</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-500 dark:text-slate-400 mb-5">
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">ASP.NET MVC</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">C#</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">SQL Server</span>
+                        </div>
+
+                        <button class="open-case-study w-full py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-slate-800/90 hover:bg-azure-600 hover:text-white dark:hover:bg-azure-600 text-slate-700 dark:text-slate-200 font-mono text-xs font-semibold transition-all flex items-center justify-between" data-project-id="compass">
+                            <span>Inspect Architecture & Case Study</span>
+                            <i class="fas fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- =================================================================
+             05. CREDENTIALS & HIGH-IMPACT CONTACT BENTO SECTION
+             ================================================================= -->
+        <section id="contact" class="py-20 relative">
+            <div class="font-mono text-xs uppercase tracking-widest text-azure-600 dark:text-azure-400 mb-2">05 / Credentials & Direct Contact</div>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-10">Education, Certifications & Connect</h2>
+
+            <div class="grid lg:grid-cols-12 gap-6">
+                <!-- Education & Certs (5 cols) -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="spotlight-card p-6 sm:p-7">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-azure-500/15 border border-azure-500/30 text-azure-500 flex items-center justify-center text-xl flex-shrink-0">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-mono text-azure-600 dark:text-azure-400">2011 — 2016 • GPA 3.42 / 4.00</span>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-0.5">Jenderal Soedirman University</h3>
+                                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Bachelor's Degree in Informatics Engineering</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spotlight-card p-6 sm:p-7">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-teal-500/15 border border-teal-500/30 text-teal-500 flex items-center justify-center text-xl flex-shrink-0">
+                                <i class="fas fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-mono text-teal-600 dark:text-teal-400">Issued Oct 2024 • Security & CI/CD</span>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-0.5">DevSecOps Certification</h3>
+                                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">PT. Pertamina Hulu Energi — Secure SDLC & Automated Pipeline Governance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick-Copy Interactive Contact Bento Card (7 cols) -->
+                <div class="spotlight-card lg:col-span-7 p-8 sm:p-10 flex flex-col justify-between bg-gradient-to-br from-white/90 to-sky-50/50 dark:from-slate-900/90 dark:to-slate-950/90">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-mono mb-4">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                            Open for Enterprise Projects & Engineering Roles
+                        </div>
+
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-3">
+                            Need a seasoned .NET & Azure engineer on your team?
+                        </h3>
+                        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                            Whether you're modernizing legacy .NET applications, scaling SQL Server & PostgreSQL workloads, or building Azure DevOps & API Management pipelines, let's connect.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="mailto:wildan.ismanto@ms.mii.co.id?subject=Engineering%20Inquiry%20from%20WHI.dev" class="flex-1 py-3.5 px-6 rounded-xl bg-azure-600 hover:bg-azure-500 text-white font-semibold text-sm text-center shadow-lg shadow-azure-600/25 transition-all flex items-center justify-center gap-2">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Send Direct Email</span>
+                            </a>
+
+                            <button data-copy-email="wildan.ismanto@ms.mii.co.id" class="copy-email-btn py-3.5 px-5 rounded-xl bg-slate-200/80 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-mono text-xs font-semibold transition-all flex items-center justify-center gap-2">
+                                <i class="far fa-copy text-azure-500"></i>
+                                <span>Copy Email Address</span>
+                            </button>
+
+                            <button id="footer-resume-btn" class="py-3.5 px-5 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-azure-500 text-slate-700 dark:text-slate-200 font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                                <i class="fas fa-print text-azure-500"></i>
+                                <span>Print CV</span>
+                            </button>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-200/70 dark:border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-slate-500 dark:text-slate-400">
+                            <span>Direct Inbox: <strong class="text-slate-700 dark:text-slate-200">wildan.ismanto@ms.mii.co.id</strong></span>
+                            <span>Shortcut: Press <kbd class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Ctrl + K</kbd> anytime</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-10 mt-12 border-t border-slate-200/70 dark:border-white/[0.06] bg-white/40 dark:bg-darkBg/60 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
+            <div class="flex items-center gap-2">
+                <span class="font-bold text-slate-900 dark:text-white">WHI.dev</span>
+                <span>— Engineered for Wildan Hilmy Ismanto</span>
+            </div>
+            <div class="flex items-center gap-5 font-mono">
+                <a href="#hero" class="hover:text-azure-500 transition-colors">Top ↑</a>
+                <a href="#architecture" class="hover:text-azure-500 transition-colors">Architecture</a>
+                <a href="#projects" class="hover:text-azure-500 transition-colors">Case Studies</a>
+                <span>© 2026</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =====================================================================
+         MODAL 1: PROJECT CASE STUDY DEEP-DIVE MODAL
+         ===================================================================== -->
+    <div id="case-study-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/75 backdrop-blur-md">
+        <div class="spotlight-card w-full max-w-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 rounded-3xl shadow-2xl overflow-hidden animate-fadeIn">
+            <div class="px-6 py-5 bg-slate-100/80 dark:bg-slate-950/80 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <span id="modal-client-badge" class="px-2.5 py-1 rounded-full text-xs font-mono font-semibold bg-azure-500/15 text-azure-600 dark:text-azure-400">Client</span>
+                    <span id="modal-year" class="text-xs font-mono text-slate-400">Enterprise System</span>
+                </div>
+                <button id="close-case-modal" class="w-8 h-8 rounded-lg bg-slate-200/70 dark:bg-slate-800 text-slate-500 hover:text-slate-900 dark:hover:text-white flex items-center justify-center">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="p-6 sm:p-8 space-y-6 max-h-[80vh] overflow-y-auto">
+                <div>
+                    <h3 id="modal-title" class="text-2xl font-extrabold text-slate-900 dark:text-white mb-2">Project Title</h3>
+                    <p id="modal-summary" class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed"></p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="p-4 rounded-2xl bg-slate-100/70 dark:bg-slate-800/50 border border-slate-200/60 dark:border-white/5">
+                        <div class="text-xs font-mono uppercase text-azure-600 dark:text-azure-400 font-bold mb-1.5">
+                            <i class="fas fa-bullseye mr-1"></i> The Challenge
+                        </div>
+                        <p id="modal-challenge" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed"></p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-100/70 dark:bg-slate-800/50 border border-slate-200/60 dark:border-white/5">
+                        <div class="text-xs font-mono uppercase text-teal-600 dark:text-teal-400 font-bold mb-1.5">
+                            <i class="fas fa-gears mr-1"></i> Architectural Solution
+                        </div>
+                        <p id="modal-solution" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2.5">Key Deliverables & Impact</h4>
+                    <ul id="modal-deliverables" class="space-y-2 text-sm text-slate-600 dark:text-slate-300"></ul>
+                </div>
+
+                <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-4">
+                    <div id="modal-tech-stack" class="flex flex-wrap gap-1.5 font-mono text-xs"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL 2: COMMAND PALETTE (CTRL + K)
+         ===================================================================== -->
+    <div id="cmd-palette-modal" class="fixed inset-0 z-50 hidden items-start justify-center pt-20 sm:pt-28 p-4 bg-slate-950/75 backdrop-blur-sm">
+        <div class="w-full max-w-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-2xl overflow-hidden">
+            <div class="px-4 py-3.5 border-b border-slate-200 dark:border-slate-800 flex items-center gap-3">
+                <i class="fas fa-search text-azure-500 text-sm"></i>
+                <input id="cmd-search-input" type="text" placeholder="Type a command or search sections, projects, actions..." class="w-full bg-transparent text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none font-sans" autocomplete="off" />
+                <kbd class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-100 dark:bg-slate-800 text-slate-500">ESC</kbd>
+            </div>
+
+            <div id="cmd-list" class="max-h-80 overflow-y-auto p-2 space-y-1 text-sm">
+                <!-- Populated dynamically by app.js -->
+            </div>
+
+            <div class="px-4 py-2.5 bg-slate-50 dark:bg-slate-950/80 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                <span><i class="fas fa-bolt text-azure-500 mr-1"></i>WHI.dev Quick Navigation</span>
+                <span>Click any item or press ESC to close</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL 3: PRINTABLE / DOWNLOADABLE EXECUTIVE RESUME MODAL
+         ===================================================================== -->
+    <div id="resume-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+        <div id="resume-printable" class="w-full max-w-4xl bg-white text-slate-900 rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col border border-slate-300">
+            <!-- Modal Top Bar (Hidden when printing) -->
+            <div class="no-print px-6 py-4 bg-slate-900 text-white flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <i class="far fa-file-pdf text-azure-400 text-lg"></i>
+                    <span class="font-semibold text-sm">Wildan Hilmy Ismanto — Executive Curriculum Vitae</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                    <button id="print-resume-action" class="px-4 py-1.5 rounded-lg bg-azure-600 hover:bg-azure-500 text-white text-xs font-semibold flex items-center gap-1.5 transition-colors">
+                        <i class="fas fa-print"></i> Print / Save as PDF
+                    </button>
+                    <button id="close-resume-modal" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Printable Resume Content -->
+            <div class="p-8 sm:p-10 overflow-y-auto space-y-6 text-slate-800 text-sm leading-relaxed">
+                <div class="border-b-2 border-slate-800 pb-5 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                    <div>
+                        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 uppercase">Wildan Hilmy Ismanto</h1>
+                        <p class="text-base font-semibold text-azure-700 mt-1">Enterprise Application Developer (.NET / C# / Azure / SQL Server)</p>
+                    </div>
+                    <div class="text-xs font-mono text-slate-600 space-y-1 sm:text-right">
+                        <div>Email: wildan.ismanto@ms.mii.co.id</div>
+                        <div>Portfolio: WHI.dev • Indonesia</div>
+                        <div>Certification: DevSecOps (Oct 2024)</div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-xs font-mono uppercase tracking-widest font-bold text-azure-700 mb-2">Executive Summary</h2>
+                    <p class="text-xs sm:text-sm text-slate-700">
+                        Application Developer with 6+ years of professional experience architecting, migrating, and maintaining enterprise software systems across energy, banking, telecommunications, and manufacturing sectors. Specialized in C#, .NET Core / .NET 6-8, ASP.NET MVC/WebAPI, Blazor, SQL Server, PostgreSQL, Azure DevOps CI/CD, Azure API Management, Application Insights, and Power BI telemetry.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-xs font-mono uppercase tracking-widest font-bold text-azure-700 mb-3">Professional Experience</h2>
+                    <div class="space-y-4 text-xs sm:text-sm">
+                        <div>
+                            <div class="flex justify-between font-bold text-slate-900">
+                                <span>Application Developer Associate — PT. Mitra Integrasi Informatika</span>
+                                <span class="font-mono text-xs text-slate-600">Dec 2023 – Present</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-700 mt-1 space-y-1">
+                                <li>Build internal enterprise software and customize existing .NET codebases for optimal operational efficiency.</li>
+                                <li>Maintain mission-critical applications, Azure DevOps CI/CD pipelines, and Azure API Management gateways.</li>
+                                <li>Develop executive Power BI Dashboards connected to Application Insights for real-time observability.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between font-bold text-slate-900">
+                                <span>Application Developer — PT. FEBE TEKNOLOGI DIGITAL</span>
+                                <span class="font-mono text-xs text-slate-600">Oct 2020 – Nov 2023</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-700 mt-1 space-y-1">
+                                <li>Led full-lifecycle application development, database migration, and deployment for major enterprise clients.</li>
+                                <li>Architected scalable relational database schemas in SQL Server, PostgreSQL, and MySQL.</li>
+                                <li>Delivered backend solutions leveraging ASP.NET Core, WebAPI, .NET 6/7, and Blazor.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between font-bold text-slate-900">
+                                <span>.NET Developer — PT. BSC Indonesia</span>
+                                <span class="font-mono text-xs text-slate-600">Oct 2019 – Oct 2020</span>
+                            </div>
+                            <p class="text-slate-700 mt-0.5">Developed tailored client software solutions using ASP.NET MVC, C#, and SQL Server.</p>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between font-bold text-slate-900">
+                                <span>.NET Developer — PT. Bumimulia Indah Lestari</span>
+                                <span class="font-mono text-xs text-slate-600">May 2018 – Oct 2019</span>
+                            </div>
+                            <p class="text-slate-700 mt-0.5">Customized legacy codebases, improved system efficiency, and executed smooth application migrations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div>
+                        <h2 class="text-xs font-mono uppercase tracking-widest font-bold text-azure-700 mb-2">Key Enterprise Projects</h2>
+                        <ul class="list-disc list-inside text-xs text-slate-700 space-y-1">
+                            <li><strong>U-CAN System</strong> (Pertamina Hulu Energi) — .NET MVC, SQL Server</li>
+                            <li><strong>RFPO Portal</strong> (Bungasari Flour Mills) — .NET 7, WebAPI, PostgreSQL</li>
+                            <li><strong>Inventory & Gift Tracking</strong> (Bank Danamon) — .NET 6, Worker Service</li>
+                            <li><strong>Site Lease Agreement</strong> (Protelindo) — ASP.NET, Serenity FW</li>
+                            <li><strong>App Insights & APIM</strong> — Azure DevOps, API Management, Power BI</li>
+                            <li><strong>COMPASS</strong> (Pertamina Hulu Mahakam) — ASP.NET MVC, SQL Server</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="text-xs font-mono uppercase tracking-widest font-bold text-azure-700 mb-2">Education & Certifications</h2>
+                        <p class="text-xs font-bold text-slate-900">Jenderal Soedirman University (2011 – 2016)</p>
+                        <p class="text-xs text-slate-700 mb-3">Bachelor of Informatics Engineering • GPA: 3.42 / 4.00</p>
+                        <p class="text-xs font-bold text-slate-900">DevSecOps Certification (Oct 2024)</p>
+                        <p class="text-xs text-slate-700">Issued by PT. Pertamina Hulu Energi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Toast Notification -->
+    <div id="toast-notification" class="fixed bottom-6 right-6 z-50 pointer-events-none opacity-0 translate-y-3 transition-all duration-300 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-xl border border-slate-700 dark:border-slate-200 flex items-center gap-2.5 text-xs font-mono">
+        <i class="fas fa-circle-check text-emerald-400 dark:text-emerald-600 text-sm"></i>
+        <span id="toast-message">Copied to clipboard!</span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
